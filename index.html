@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ZEEKO ORG APPS LTD - Premium mobile applications and digital experiences.">
+    <title>ZEEKO ORG APPS LTD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #121212;
+            --text-light: #F5F5F7;
+            --text-muted: #A1A1A6;
+            --gold: #D4AF37;
+            --gold-gradient: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { background-color: var(--bg-color); color: var(--text-light); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+        body.rtl { font-family: 'Cairo', sans-serif; direction: rtl; }
+
+        /* الحل الجذري لمشكلة ظهور الزرين معاً */
+        body:not(.rtl) .ar-text { display: none !important; }
+        body.rtl .en-text { display: none !important; }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 12px 5%; background: rgba(5,5,5,0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(212,175,55,0.1); }
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .logo-img { height: 35px; width: auto; }
+        .company-name { font-size: 1.1rem; font-weight: 900; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .lang-dropdown { position: relative; display: inline-block; }
+        .globe-icon { cursor: pointer; color: var(--gold); background: none; border: none; outline: none; display: flex; align-items: center; }
+        .globe-icon svg { width: 24px; height: 24px; stroke: var(--gold); }
+        
+        .lang-content { display: none; position: absolute; right: 0; background-color: var(--card-bg); min-width: 120px; box-shadow: 0 10px 25px rgba(0,0,0,0.8); z-index: 1; border: 1px solid rgba(212,175,55,0.3); border-radius: 8px; margin-top: 10px; }
+        body.rtl .lang-content { right: auto; left: 0; }
+        .lang-dropdown:hover .lang-content { display: block; }
+        .lang-content button { color: #fff; padding: 10px 15px; text-decoration: none; display: block; width: 100%; border: none; background: none; text-align: left; cursor: pointer; font-family: inherit; font-size: 0.9rem; font-weight: bold; }
+        body.rtl .lang-content button { text-align: right; }
+        .lang-content button:hover { color: var(--gold); }
+
+        .hero { margin-top: 60px; width: 100%; background: var(--bg-color); text-align: center; }
+        .banner-img { width: 100%; max-width: 1280px; max-height: 511px; object-fit: cover; border-bottom: 1px solid var(--gold); display: block; margin: 0 auto; }
+
+        .corporate-info { padding: 40px 5%; max-width: 1100px; margin: 0 auto; text-align: left; }
+        body.rtl .corporate-info { text-align: right; }
+        .corporate-info h1 { font-size: 1.5rem; margin-bottom: 15px; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+        .corporate-info p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
+
+        .apps-section { padding: 30px 5% 60px; background: var(--bg-color); max-width: 1100px; margin: 0 auto; }
+        .section-title { font-size: 1.5rem; margin-bottom: 30px; text-align: left; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+        body.rtl .section-title { text-align: right; }
+        
+        .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 768px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .app-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: left; display: flex; flex-direction: column; }
+        body.rtl .app-card { text-align: right; }
+        
+        /* تصميم العنوان بجانب الأيقونة الجديد */
+        .app-card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .app-icon { width: 80px; height: 80px; border-radius: 15px; object-fit: cover; border: 1px solid rgba(212,175,55,0.2); }
+        
+        .app-card h3 { font-size: 1.1rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+        .app-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.85rem; flex-grow: 1; }
+        
+        /* زر جوجل بلاي */
+        .play-btn { display: inline-block; margin-top: 20px; padding: 10px 15px; border: 1px solid var(--gold); border-radius: 6px; color: var(--gold); font-size: 0.9rem; font-weight: bold; text-align: center; text-decoration: none; transition: 0.3s; }
+        .play-btn:hover { background: var(--gold); color: #000; }
+
+        footer { padding: 30px 5%; text-align: center; background: var(--card-bg); border-top: 1px solid rgba(212,175,55,0.1); }
+        .contact-email { font-size: 1.1rem; margin: 15px 0; font-weight: bold; letter-spacing: 1px; }
+        .contact-email a { color: var(--gold); text-decoration: none; transition: color 0.3s; }
+        .contact-email a:hover { color: #fff; }
+        footer a { color: var(--text-light); text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
+        footer a:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="assets/logo.webp" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+            <div class="company-name">ZEEKO ORG APPS LTD</div>
+        </div>
+        
+        <div class="lang-dropdown">
+            <button class="globe-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+            </button>
+            <div class="lang-content">
+                <button onclick="setLanguage('ar')">العربية</button>
+                <button onclick="setLanguage('en')">English</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <img src="assets/banner.webp" alt="ZEEKO Banner" class="banner-img" onerror="this.style.display='none'">
+    </div>
+
+    <section class="corporate-info">
+        <h1 class="en-text">Pioneering Digital Innovation</h1>
+        <h1 class="ar-text">ريادة الابتكار الرقمي</h1>
+        
+        <p class="en-text">ZEEKO ORG APPS LTD is a forward-thinking software development company officially registered and headquartered in London, United Kingdom. We specialize in developing state-of-the-art mobile applications and interactive digital experiences. Our commitment is to deliver highly optimized, user-centric solutions that meet the highest global standards of technology and creativity.</p>
+        <p class="ar-text">شركة ZEEKO ORG APPS LTD هي مؤسسة رائدة في تطوير البرمجيات، مسجلة رسمياً ومقرها الرئيسي في العاصمة لندن بالمملكة المتحدة. نحن متخصصون في بناء أحدث تطبيقات الهواتف الذكية والتجارب الرقمية التفاعلية. نلتزم بتقديم حلول متطورة تركز على المستخدم وتلبي أعلى المعايير العالمية في التكنولوجيا والإبداع.</p>
+    </section>
+
+    <section class="apps-section">
+        <h2 class="section-title en-text">Our Ecosystem</h2>
+        <h2 class="section-title ar-text">نظامنا البيئي</h2>
+        
+        <div class="grid">
+            <div class="app-card">
+                <!-- تم دمج الأيقونة والعنوان بجانب بعضهما -->
+                <div class="app-card-header">
+                    <img src="assets/setat.webp" alt="سيتات اورج PRO 2027" class="app-icon" onerror="this.style.display='none'">
+                    <div>
+                        <h3 class="en-text">Setat ORG PRO 2027</h3>
+                        <h3 class="ar-text">سيتات اورج PRO 2027</h3>
+                    </div>
+                </div>
+                
+                <p class="en-text">A massive, premium library of exclusive Middle Eastern rhythms and studio-quality sound sets for virtual music production.</p>
+                <p class="ar-text">المكتبة الشاملة للإيقاعات الشرقية الحصرية والسيتات عالية الجودة، لرفع مستوى إنتاجك الموسيقي الافتراضي بجودة الاستوديو.</p>
+                
+                <!-- أزرار التحميل ستظهر وتختفي تلقائياً بناءً على لغة الموقع بفضل كود الـ CSS الجديد -->
+                <a href="https://play.google.com/store/apps/details?id=com.zeekoltd.setat.pro" target="_blank" class="play-btn en-text">Get it on Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=com.zeekoltd.setat.pro" target="_blank" class="play-btn ar-text">حمله من جوجل بلاي</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contact-email"><a href="mailto:support@zeekoltd.com">support@zeekoltd.com</a></div>
+        <p class="en-text" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, UK</p>
+        <p class="ar-text" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">71-75 شارع شيلتون، كوفنت جاردن، لندن، المملكة المتحدة</p>
+        
+        <div>
+            <a href="privacy.html" class="en-text">Privacy Policy</a>
+            <a href="privacy.html" class="ar-text">سياسة الخصوصية</a>
+            <span style="color:#333;">|</span>
+            <span class="en-text" style="color: var(--text-muted); font-size: 0.85rem;">&copy; 2026 ZEEKO ORG APPS LTD</span>
+            <span class="ar-text" style="color: var(--text-muted); font-size: 0.85rem;">&copy; 2026 ZEEKO ORG APPS LTD</span>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            const htmlTag = document.getElementById('html-tag');
+            if(lang === 'ar') {
+                htmlTag.setAttribute('lang', 'ar'); htmlTag.setAttribute('dir', 'rtl'); document.body.classList.add('rtl');
+            } else {
+                htmlTag.setAttribute('lang', 'en'); htmlTag.setAttribute('dir', 'ltr'); document.body.classList.remove('rtl');
+            }
+            localStorage.setItem('zeeko_lang', lang);
+        }
+
+        window.onload = () => {
+            const savedLang = localStorage.getItem('zeeko_lang');
+            if (savedLang) { setLanguage(savedLang); } 
+            else {
+                const userLang = navigator.language || navigator.userLanguage;
+                if (userLang.startsWith('ar')) { setLanguage('ar'); } else { setLanguage('en'); }
+            }
+        };
+    </script>
+</body>
+</html>
