@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   
+
    <!-- الصفحة الرئيسية -->
    <url>
-      <loc>https://www.zeekoltd.com/</loc>
-      <lastmod>2026-10-27</lastmod>
+      <loc>https://zeekoltd.com/</loc>
+      <lastmod>2026-10-28</lastmod>
       <priority>1.00</priority>
    </url>
-   
+
+   <!-- صفحة هبوط تطبيق سيتات أورج برو 2027 -->
+   <url>
+      <loc>https://zeekoltd.com/setat-org-pro-2027.html</loc>
+      <lastmod>2026-10-28</lastmod>
+      <priority>0.90</priority>
+   </url>
+
    <!-- صفحة سياسة الخصوصية -->
    <url>
-      <loc>https://www.zeekoltd.com/privacy.html</loc>
+      <loc>https://zeekoltd.com/privacy.html</loc>
       <lastmod>2026-10-27</lastmod>
       <priority>0.80</priority>
    </url>
 
    <!-- صفحة التواصل الاجتماعي -->
    <url>
-      <loc>https://www.zeekoltd.com/social.html</loc>
+      <loc>https://zeekoltd.com/social.html</loc>
       <lastmod>2026-10-27</lastmod>
       <priority>0.80</priority>
    </url>
